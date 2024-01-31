@@ -1,4 +1,5 @@
 Sortowanie funkcjonariuszy
+
 Eksperci z Ministerstwa Postępu nie przewidzieli, jak wielkim wyzwaniem organizacyjnym jest wprowadzenie zajęć z programowania do przedszkoli. Największym problemem okazało się znalezienie nauczycieli będących w stanie uczyć programowania. Nie łatwo jest bowiem znaleźć informatyków chcących pracować za minimalną krajową. Próbowano dokształcać z programowania nauczycieli przedszkolnych, ale, poza niewielkimi wyjątkami, gdy tylko ktoś nauczył się programować od razu rzucał pracę w przedszkolu i szedł do biznesu. W obliczu potencjalnej klęski nagłośnionego w mediach programu Ministerstwo zdecydowało się na wysłanie do przedszkoli funkcjonariuszy służb mundurowych. Wcześniej jednak przeprowadzono test mający określić, którzy funkcjonariusze mają największe predyspozycje do uczenia przedszkolaków programowania. W wyniku testu uzyskano gigantyczne ilości danych, które teraz trzeba uporządkować. Pierwszym zadaniem jest posortowanie listy zawierającej pary: numer legitymacji służbowej funkcjonariusza, liczba punktów zdobytych przez danego funkcjonariusza.
 
 Wejście
@@ -13,12 +14,16 @@ Program powinien posortować wczytaną listę funkcjonariuszy niemalejąco wzgl�
 Przykład 1
 Wejście
 
-Copy code
 4 0 100 0
+
 12345 100
+
 23456 0
+
 34567 90
+
 23456 90
+
 Wyjście
 
 Copy code
