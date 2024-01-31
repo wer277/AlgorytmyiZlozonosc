@@ -17,6 +17,7 @@ Na standardowym wyjściu program powinien wypisać efekty działania operacji i 
 ### Przykładowe wejście:
 
 6
+
 d
 
 Jan Kanty
