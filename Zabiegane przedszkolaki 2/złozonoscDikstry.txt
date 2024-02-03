@@ -1,0 +1,6 @@
+## Bing
+Algorytm Dijkstry z kopcem Fibonacciego ma złożoność czasową $$O(E + V \log V)$$, gdzie $$E$$ to liczba krawędzi, a $$V$$ to liczba wierzchołków w grafie. Oto dlaczego:
+- Inicjalizacja: Tworzenie kopca Fibonacciego z $$V$$ wierzchołkami zajmuje $$O(V)$$ czasu.
+- Usuwanie minimum: Operacja extractMin jest wykonywana $$V$$ razy, a każda operacja trwa $$O(\log V)$$. Stąd czas na wszystkie operacje extractMin wynosi $$O(V \log V)$$.
+- Zmniejszanie klucza: Operacja decreaseKey jest wykonywana $$E$$ razy, a każda operacja trwa $$O(1)$$. Stąd czas na wszystkie operacje decreaseKey wynosi $$O(E)$$.
+Dodając te trzy składniki, otrzymujemy złożoność czasową $$O(E + V \log V)$$. Algorytm Dijkstry z kopcem Fibonacciego jest szybszy od tradycyjnej implementacji algorytmu Dijkstry (z kopcem binarnym), który ma złożoność czasową $$O((E+V) \log V)$$.
