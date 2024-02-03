@@ -1,0 +1,7 @@
+Algorytm Forda-Bellmana ma złożoność czasową O(V*E), gdzie V to liczba wierzchołków, a E to liczba krawędzi w grafie. Oto dlaczego:
+
+Algorytm Forda-Bellmana działa poprzez wykonanie V-1 iteracji (gdzie V to liczba wierzchołków) i próbę “zrelaksowania” każdej krawędzi podczas każdej iteracji. “Relaksacja” krawędzi polega na sprawdzeniu, czy możemy skrócić najkrótszą ścieżkę do wierzchołka docelowego poprzez przejście przez wierzchołek początkowy.
+
+Ponieważ mamy V-1 iteracji i podczas każdej iteracji relaksujemy E krawędzi, mamy łącznie *(V-1)E operacji, co daje złożoność czasową O(V*E).
+
+Warto zauważyć, że algorytm Forda-Bellmana jest efektywny dla grafów o niewielkiej liczbie wierzchołków, ale może być niewydajny dla grafów o dużej liczbie wierzchołków ze względu na swoją złożoność czasową. Dla grafów o dużej liczbie wierzchołków często lepszym wyborem jest algorytm Dijkstry lub algorytm Bellmana-Forda z kolejnością topologiczną, które mają złożoność czasową O(V+E log V).
