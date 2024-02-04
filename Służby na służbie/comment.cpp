@@ -244,7 +244,7 @@ void introSortI(DaneI *tab, int s, int n) {
 }
 
 /*Implementuje sortowanie przez zliczanie.*/
-void countingSort(Dane *tab, int maxValue, int n){ // O(n) lub O(n + k)
+void countingSort(Dane *tab, int maxValue, int n){ // O(n) lub O(n + k) k maksymaln wartość elementu
     int *countTab; // Tworzymy tablicę do zliczania
     int size = maxValue + 1; // Rozmiar tablicy zliczającej to maksymalna wartość + 1
     countTab = new intsize; // Inicjalizujemy tablicę zliczającą zerami
