@@ -1,0 +1,5 @@
+Ta funkcja haszująca działa poprzez iterowanie przez każdy znak w kluczu, mnożenie aktualnej wartości haszowania przez 31 (wybraną liczbę pierwszą), dodanie wartości ASCII danego znaku, a następnie obliczenie reszty z dzielenia przez rozmiar tablicy (modSize). Wynik jest zwracany jako wartość haszująca.
+
+Konflikty, które mogą wystąpić, gdy dwa różne klucze mają tę samą wartość haszującą, są rozwiązywane za pomocą łańcuchowania. W łańcuchowaniu, każde miejsce w tablicy haszującej przechowuje wskaźnik do listy (łańcucha) elementów, które mają tę samą wartość haszującą. Gdy występuje konflikt, nowy element jest dodawany do istniejącej listy.
+
+W przypadku tej implementacji, jeśli wystąpi konflikt (tzn. jeśli dwa różne klucze mają tę samą wartość haszującą), nowy węzeł jest dodawany na koniec listy, aby zachować kolejność elementów.
