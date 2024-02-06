@@ -30,6 +30,7 @@ void insert(const int &key, const int value, Node *&node) {
 
 void search(int key, Node *node) {
     if (node == nullptr) {
+        cout<<"Nie znaleziono"<<"\n";
         return;
     }
     if (key < node->key) {
@@ -47,6 +48,37 @@ void search(int key, Node *node) {
     }
 }
 
+void minValueNode(Node* node, Node* &minNode) {
+    Node* current = node;
+    while (current && current->left != nullptr)
+        current = current->left;
+    minNode = current;
+}
+
+void deleteNode(Node* &root, int key) {
+    if (root == nullptr) return;
+    if (key < root->key)
+        deleteNode(root->left, key);
+    else if (key > root->key)
+        deleteNode(root->right, key);
+    else {
+        if (root->left == nullptr) {
+            Node *temp = root->right;
+            delete root;
+            root = temp;
+        } else if (root->right == nullptr) {
+            Node *temp = root->left;
+            delete root;
+            root = temp;
+        } else {
+            Node* temp = nullptr;
+            minValueNode(root->right, temp);
+            root->key = temp->key;
+            deleteNode(root->right, temp->key);
+        }
+    }
+}
+
 
 int main() {
     Node *tree = nullptr;
@@ -61,5 +93,8 @@ int main() {
     cin>>key;
     cout<<"Znalezione"<<"\n";
     search(key,tree);
+    deleteNode(tree, 2);
+    search(2, tree);
+    search(1, tree);
     return 0;
 }
