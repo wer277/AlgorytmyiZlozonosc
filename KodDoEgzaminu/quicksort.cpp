@@ -70,6 +70,35 @@ void insertioSort(Dane *tab, int s, int n){
     }
 }
 
+void countingSort(Dane *tab, int maxValue, int n){
+    int *countingTab;
+    int size = maxValue + 1;
+    countingTab = new int [size]();
+
+    for(int i = 0; i<n; i++){
+        countingTab[tab[i].liczba_punktow]++;
+    }
+    
+    for(int i = 1; i<size;i++){
+        countingTab[i] += countingTab[i-1];
+    }
+    
+    Dane *sortedTab = new Dane[n];
+    
+    for(int i = n-1; i>=0; i--){
+        int pom = countingTab[tab[i].liczba_punktow]-1;
+        sortedTab[pom] = tab[i];
+        countingTab[tab[i].liczba_punktow]--;
+    }
+    
+    for(int i = 0; i<n; i++){
+        tab[i] = sortedTab[i];
+    }
+    
+    delete[] countingTab;
+    delete[] sortedTab;
+}
+
 int main() {
     Dane dane[] = {
             Dane(1, 45),
