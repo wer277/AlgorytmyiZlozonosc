@@ -57,6 +57,19 @@ void quickSort(Dane *tab, int s, int n) {
     quickSort(tab, pivotIndex + 1, s + n - pivotIndex - 1); // Sortowanie prawej podtablicy
 }
 
+void insertioSort(Dane *tab, int s, int n){
+    for(int i = s+1; i<=n; i++){
+        Dane key = tab[i];
+        int j = i - 1;
+        
+        while(j >= s && tab[j] > key){
+            tab[j+1] = tab[j];
+            j--;
+        }
+        tab[j+1] = key;
+    }
+}
+
 int main() {
     Dane dane[] = {
             Dane(1, 45),
