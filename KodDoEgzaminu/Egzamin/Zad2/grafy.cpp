@@ -15,7 +15,7 @@ struct Edge{
 
     Edge(int poczatek, int koniec, long long int waga): wierzcholek_poczatkowy(poczatek), wierzcholek_koncowy(koniec), waga(waga){}
 
-    Edge(int poczatek, int koniec, long long int odleglosc, bool odwiedzony): wierzcholek_poczatkowy(poczatek), wierzcholek_koncowy(koniec), odleglosc(odleglosc), odwiedzony(odwiedzony){} 
+    Edge(int poczatek, int koniec, long long int odleglosc, bool odwiedzony): wierzcholek_poczatkowy(poczatek), wierzcholek_koncowy(koniec), odleglosc(odleglosc), odwiedzony(odwiedzony){}
 };
 
 struct Graf{
@@ -28,8 +28,8 @@ struct Graf{
     Graf(int w): liczba_wierzcholkow(w), listaSasiedztwa(w){}
 
     void dodajKrawedz(int poczatek, int koniec, long long int waga){
-            listaSasiedztwa[poczatek].push_back(make_pair(koniec, waga));
-            edges.push_back(Edge(poczatek, koniec, waga));
+        listaSasiedztwa[poczatek].push_back(make_pair(koniec, waga));
+        edges.push_back(Edge(poczatek, koniec, waga));
     }
 };
 
@@ -53,7 +53,7 @@ void bellman(Graf &graf, int s){
     int wierzcholek = -1;
     long long int odleglosc = -1;
     for(int i = 0; i<graf.liczba_wierzcholkow; i++){
-        if(odleglosc < dist[i]){
+        if(odleglosc < dist[i] && dist[i] != INF){
             odleglosc = dist[i];
             wierzcholek = i;
         } else if(dist[i] == INF){
@@ -73,7 +73,7 @@ void dikstry(Graf &graf, int s){
 
     while(!kolejka.empty()){
         int u = kolejka.top().second;
-        
+
         if(odwiedzony[u]){
             continue;
         }
@@ -92,7 +92,7 @@ void dikstry(Graf &graf, int s){
     long long int odleglosc = -1;
 
     for(int i = 0; i<graf.liczba_wierzcholkow; i++){
-        if(odleglosc < dist[i]){
+        if(odleglosc < dist[i] && dist[i] != INF){
             odleglosc = dist[i];
             wierzcholek = i;
         } else if(dist[i] == INF){
@@ -122,7 +122,7 @@ int main(){
     if(czy_ujemne){
         for(int i = 0; i<n; i++){
             bellman(graf, i);
-        }   
+        }
         for(int i = 0; i<graf.bellmanOdp.size(); i++){
             if(odleglosc < graf.bellmanOdp[i].waga && graf.bellmanOdp[i].waga != INF){
                 odleglosc = graf.bellmanOdp[i].waga;
