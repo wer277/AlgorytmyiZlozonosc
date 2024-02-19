@@ -73,7 +73,7 @@ void dikstry(Graf &graf, int s){
 
     while(!kolejka.empty()){
         int u = kolejka.top().second;
-
+        kolejka.pop();
         if(odwiedzony[u]){
             continue;
         }
@@ -86,6 +86,15 @@ void dikstry(Graf &graf, int s){
                 kolejka.push({dist[v], v});
             }
         }
+
+//        for(auto p : graf.listaSasiedztwa[u]){
+//            int v = p.first;
+//            long long int waga = static_cast<long long int>(p.second);
+//            if(dist[u] + waga < dist[v]){
+//                dist[v] = dist[u] + waga;
+//                kolejka.push({dist[v], v});
+//            }
+//        }
     }
 
     int wierzcholek = -1;
