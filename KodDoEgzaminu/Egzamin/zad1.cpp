@@ -25,6 +25,31 @@ struct Dane{
     }
 };
 
+int pomQuickSort(Dane *tab, int s, int n) {
+    int index = s + rand() % n; // Losowy pivot
+    swap(tab[index], tab[s + n - 1]); // Zamiana z ostatnim elementem
+    Dane pivot = tab[s + n - 1];
+    int i = s - 1;
+
+    for(int j = s; j < s + n - 1; j++) {
+        if(tab[j] < pivot) {
+            i++;
+            swap(tab[i], tab[j]);
+        }
+    }
+    swap(tab[i + 1], tab[s + n - 1]);
+    return i + 1;
+}
+
+void quickSort(Dane *tab, int s, int n) {
+    if (n <= 1) return; // Warunek bazowy
+
+    int pivotIndex = pomQuickSort(tab, s, n);
+    quickSort(tab, s, pivotIndex - s); // Sortowanie lewej podtablicy
+    quickSort(tab, pivotIndex + 1, s + n - pivotIndex - 1); // Sortowanie prawej podtablicy
+}
+
+
 void insertionSort(Dane *tab, int s, int n){
     for(int i = s+1; i<=n; i++){
         Dane key = tab[i];
@@ -77,9 +102,10 @@ int main(){
         tab[i].value = l;
     }
     //insertionSort(tab, 0, n-1);
-    countingSort(tab, k, n);
+    //countingSort(tab, k, n);
+    quickSort(tab, 0,n);
     for(int i = 0; i<n; i++){
-        cout<<tab[i].key<<" ";
+        cout<<tab[i].value<<" ";
     }
     return 0;
 }
