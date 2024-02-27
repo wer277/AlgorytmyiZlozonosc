@@ -13,18 +13,31 @@ Na wyjściu program powinien wypisać uporządkowane listy gatunków warzyw w pa
 
 Przykład:
 Wejście:
+
 5
+
 3 1 2
+
 marchew 3.5 345 12 
+
 rzodkiewka 4.5 23 2 
+
 pietruszka 3.5 120 12 
+
 ziemniak 5.1 323 3 
+
 seler 5.1 4000 5 
+
 dynia 3.5 400 1 
+
 kapusta 2.3 400 1 
+
 szpinak 2.3 500 1 
+
 papryka 2.3 600 1 
+
 pomidor 3.5 400 1 
+
 Wyjście:
 marchew-dynia pietruszka-pomidor seler-papryka ziemniak-szpinak rzodkiewka-kapusta
 Uwaga! Nie można używać bibliotek STL. Zadanie powinno być samodzielną implementacją algorytmu sortującego.
